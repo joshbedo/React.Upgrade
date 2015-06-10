@@ -15,10 +15,6 @@ if path.isdir(args.path) is False:
   parser.print_help()
   sys.exit("\nDirectory does not exist: " + args.path + "\n")
 
-# renameCloseToDestroy = True
-# renameLayoutToLayoutView = True
-# renameItemToChild = True
-# apiCleanup = True
 renameComponentMethods = True
 renameCreateClassToFactory = True
 
@@ -100,14 +96,14 @@ def createFactoryMethod(search, replace):
 #
 # UPGRADER CHANGES - For more info look here <http://facebook.github.io/react/blog/2014/10/28/react-v0.12.html>
 #
-# ______                _     _   _                           _        _____           _ 
+# ______                _     _   _                           _        _____           _
 # | ___ \              | |   | | | |                         | |      |_   _|         | |
 # | |_/ /___  __ _  ___| |_  | | | |_ __   __ _ _ __ __ _  __| | ___    | | ___   ___ | |
 # |    // _ \/ _` |/ __| __| | | | | '_ \ / _` | '__/ _` |/ _` |/ _ \   | |/ _ \ / _ \| |
 # | |\ \  __/ (_| | (__| |_  | |_| | |_) | (_| | | | (_| | (_| |  __/   | | (_) | (_) | |
 # \_| \_\___|\__,_|\___|\__|  \___/| .__/ \__, |_|  \__,_|\__,_|\___|   \_/\___/ \___/|_|
-#                                  | |     __/ |                                         
-#                                  |_|    |___/                                          
+#                                  | |     __/ |
+#                                  |_|    |___/
 #
 #
 
@@ -119,12 +115,3 @@ if (renameComponentMethods):
   subTerm("isValidComponent", "isValidElement")
   subTerm("PropTypes.component", "PropTypes.element")
   subTerm("PropTypes.renderable", "PropTypes.node")
-
-# THINGS WE MIGHT NOT BE ABLE TO CHANGE
-# this is a todo list of things I found when working on adding regex
-# that were not immediately obvious to change. Sorry, you'll have to do these yourself :)
-#
-#
-# 1. Module's initialize function now accepts these params(options, moduleName, app) it used to be these (moduleName, app, options)
-# 2. regions need to have an element when they're showing a view. Previously you could show a view in a region and if the region didn't have an element on the page at the time, nothing would happen. Now we through an error so you know immediately that you need to fix something.
-# I'm sure there other changes as well, so don't treat this as an exhaustive list.
